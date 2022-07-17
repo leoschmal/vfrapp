@@ -78,13 +78,12 @@ const Aircraft =()=>{
     }
     }
     //=============================
-    useEffect(()=>{//Cargo los aerodromos de Argentina    
+    useEffect(()=>{
         const firestore = getFirestore(firebaseApp);
         getDocs(collection(firestore, "aircrafts"))
         .then((snapshot) => {
                   let array = snapshot.docs.map((doc) => (doc.data()));                
-                  setData(array);
-                  //console.log(array);
+                  setData(array);                  
         })
         .catch((err) => alert(err))     
     }, []);
@@ -106,10 +105,16 @@ const Aircraft =()=>{
                 </div>
                         {
                             aeronaveSeleccionada.marca ? (  <><div>
-                                                                        <p>{aeronaveSeleccionada.marca}</p>
-                                                                        <p>{aeronaveSeleccionada.modelo}</p>
-                                                                        <p>{aeronaveSeleccionada.matricula}</p>                                                                        
+                                                                        <div className="card bg-info m-3 bg-opacity-25" style={{width: 18 + 'rem'}}>
+                                                                        <img src={aeronaveSeleccionada.url} className="card-img-top m-0" alt={aeronaveSeleccionada.matricula}/>
+                                                                        <div className="card-body m-0">
+                                                                          <h5 className="card-title text-center m-0 p-0">{aeronaveSeleccionada.matricula}</h5>
+                                                                        <p className="m-0">{aeronaveSeleccionada.marca}</p>
+                                                                        <p className="m-0">{aeronaveSeleccionada.modelo}</p>                                                                        
                                                                         </div>
+                                                                      </div>
+                                                                                                                                               
+                                                              </div>
                                                                     </>):(<div><p>Seleccione aeronave</p></div>)
                         }
             </div>

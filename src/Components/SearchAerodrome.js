@@ -122,9 +122,13 @@ const SearchAerodrome =(props)=>{
                 </div>
                         {
                             aerodromoSeleccionado.denominacion ? (  <><div>
-                                                                        <p>{aerodromoSeleccionado.denominacion}</p>
-                                                                        <p>{aerodromoSeleccionado.coordenadas}</p>
-                                                                        <p>{aerodromoSeleccionado.local}</p>
+                                                                      <div className="card bg-info m-3 bg-opacity-25" style={{width: 18 + 'rem'}}>
+                                                                        <div className="card-body m-0">
+                                                                          <h5 className="card-title text-center m-0 p-0">{aerodromoSeleccionado.local}</h5>
+                                                                        <p className="m-0">{aerodromoSeleccionado.denominacion}</p>
+                                                                        <p className="m-0">{aerodromoSeleccionado.coordenadas}</p>                                                                        
+                                                                        </div>
+                                                                      </div>                                                                        
                                                                         </div>
                                                                     </>):(<div><p>Seleccione aerodromo</p></div>)
                         }
