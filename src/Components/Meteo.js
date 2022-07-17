@@ -6,8 +6,7 @@ import { useContext} from "react";
 import {PlanContext} from '../Context/PlanContext'
 
 const Meteo = () => { 
-    const { pto1 } = useContext(PlanContext);
-    
+    const { pto1 } = useContext(PlanContext);    
     const [meteo, setMeteo] = useState(null);
     //const apikey = '9e0a77fadc6544fe9cedf9b2358e86e7'
     const apikey = process.env.REACT_APP_API_KEY_METEO;
